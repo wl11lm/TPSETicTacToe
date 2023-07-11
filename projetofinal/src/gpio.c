@@ -231,7 +231,7 @@ int gpioGetDirection(gpioMod mod, ucPinNumber pin){
 void gpioSetPinValue(gpioMod mod, ucPinNumber pin, pinLevel value){
 	unsigned int addr_temp, val_temp;
 
-	if(value == HIGH){
+	if(value == LOW){//HIGH
 		if(gpioCheckValidPortPin(mod,pin)){
 			switch (mod) {
 				case GPIO0:	
