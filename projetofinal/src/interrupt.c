@@ -3,7 +3,7 @@
 bool flag_gpio[32][4] = {false};
 
 // vetor com as 8 interrupcoes dos modulos, 0 se estiver desativado e pin se ativado
-ucPinNumber pins[8] = {0};
+// ucPinNumber pins[8] = {0};
 
 void gpioInterruptInit(gpioMod gpio, ucPinNumber pin, endnameInterrupt name)
 {
@@ -11,7 +11,7 @@ void gpioInterruptInit(gpioMod gpio, ucPinNumber pin, endnameInterrupt name)
     gpioSetInterrupt(gpio, pin);
     gpioEnableInterrupt(gpio, pin);
 
-    switch (gpio)
+    /*switch (gpio)
     {
     case GPIO0:
         if (name == A)
@@ -39,7 +39,7 @@ void gpioInterruptInit(gpioMod gpio, ucPinNumber pin, endnameInterrupt name)
         break;
     default:
         break;
-    }
+    }*/
 }
 
 void gpioIsrConfig(gpioMod mod, endnameInterrupt name)
@@ -111,11 +111,11 @@ void gpioEnableInterrupt(gpioMod gpio, ucPinNumber pin)
         HWREG(SOC_GPIO_0_REGS + GPIO_FALLINGDETECT) |= (1 << pin);
         break;
     case GPIO1:
-        HWREG(SOC_GPIO_1_REGS + GPIO_RISINGDETECT) |= 1 << pin;
+        // HWREG(SOC_GPIO_1_REGS + GPIO_RISINGDETECT) |= 1 << pin;
         HWREG(SOC_GPIO_1_REGS + GPIO_FALLINGDETECT) |= (1 << pin);
         break;
     case GPIO2:
-        HWREG(SOC_GPIO_2_REGS + GPIO_RISINGDETECT) |= 1 << pin;
+        // HWREG(SOC_GPIO_2_REGS + GPIO_RISINGDETECT) |= 1 << pin;
         HWREG(SOC_GPIO_2_REGS + GPIO_FALLINGDETECT) |= (1 << pin);
         break;
     case GPIO3:
@@ -141,7 +141,6 @@ void gpioIsrHandler(gpioMod mod, ucPinNumber pin)
 
     case GPIO1:
         HWREG(SOC_GPIO_1_REGS + GPIO_IRQSTATUS_0) = 1 << pin;
-        flag_gpio[pin][mod] = true;
         break;
 
     case GPIO2:
@@ -167,30 +166,6 @@ void timerIrqHandler(void)
     /* Stop the DMTimer */
     timerDisable(SOC_DMTIMER_7_REGS);
 }
-
-// void ISR_Handler(void)
-// {
-//     /* Verify active IRQ number */
-//     unsigned int irq_number = HWREG(INTCPS + INTC_SIR_IRQ) & 0x7f;
-
-//     for (int i = 0; i < 8; i++)
-//     {
-//         if (pins[i] != 0 && ((i == 0 && irq_number == 96) || (i == 1 && irq_number == 97)))
-//             gpioIsrHandler(GPIO0, pins[i]);
-//         if (pins[i] != 0 && ((i == 2 && irq_number == 98) || (i == 3 && irq_number == 99)))
-//             gpioIsrHandler(GPIO1, pins[i]);
-//         if (pins[i] != 0 && ((i == 4 && irq_number == 32) || (i == 5 && irq_number == 33)))
-//             gpioIsrHandler(GPIO2, pins[i]);
-//         if (pins[i] != 0 && ((i == 6 && irq_number == 62) || (i == 7 && irq_number == 63)))
-//             gpioIsrHandler(GPIO3, pins[i]);
-//     }
-
-//     if (irq_number == 95)
-//         timerIrqHandler();
-
-//     /* acknowledge IRQ */
-//     HWREG(INTCPS + INTC_CONTROL) = 0x1;
-// }
 
 void ISR_Handler(void)
 {
