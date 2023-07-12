@@ -11,9 +11,9 @@
 #define B1 14 //
 #define B2 28
 #define B3 19
-#define C1 18
+#define C1 17
 #define C2 16
-#define C3 17
+#define C3 18
 
 // leds azuis
 #define AA1 2
@@ -326,6 +326,7 @@ int main(void)
 	{
 		if (flagGet(GPIO1, A1) == true)
 		{
+			putString("A1 ",3);
 			if (tabuleiro[0][0] == ' ')
 			{
 				tabuleiro[0][0] = rodada;
@@ -360,6 +361,7 @@ int main(void)
 
 		if (flagGet(GPIO1, A2) == true)
 		{
+			putString("A2 ",3);
 			if (tabuleiro[0][1] == ' ')
 			{
 				tabuleiro[0][1] = rodada;
@@ -394,6 +396,7 @@ int main(void)
 
 		if (flagGet(GPIO1, A3) == true)
 		{
+			putString("A3 ",3);
 			if (tabuleiro[0][2] == ' ')
 			{
 				tabuleiro[0][2] = rodada;
@@ -533,6 +536,7 @@ int main(void)
 
 		if (flagGet(GPIO1, C1) == true)
 		{
+			putString("C1 ",3);
 			if (tabuleiro[2][0] == ' ')
 			{
 				tabuleiro[2][0] = rodada;
@@ -567,6 +571,7 @@ int main(void)
 
 		if (flagGet(GPIO1, C2) == true)
 		{
+			putString("C2 ",3);
 			if (tabuleiro[2][1] == ' ')
 			{
 				tabuleiro[2][1] = rodada;
@@ -601,6 +606,7 @@ int main(void)
 
 		if (flagGet(GPIO1, C3) == true)
 		{
+			putString("C3 ",3);
 			if (tabuleiro[2][2] == ' ')
 			{
 				tabuleiro[2][2] = rodada;

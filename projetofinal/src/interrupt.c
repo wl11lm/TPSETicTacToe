@@ -111,11 +111,11 @@ void gpioEnableInterrupt(gpioMod gpio, ucPinNumber pin)
         HWREG(SOC_GPIO_0_REGS + GPIO_FALLINGDETECT) |= (1 << pin);
         break;
     case GPIO1:
-        // HWREG(SOC_GPIO_1_REGS + GPIO_RISINGDETECT) |= 1 << pin;
+        HWREG(SOC_GPIO_1_REGS + GPIO_RISINGDETECT) |= 1 << pin;
         HWREG(SOC_GPIO_1_REGS + GPIO_FALLINGDETECT) |= (1 << pin);
         break;
     case GPIO2:
-        // HWREG(SOC_GPIO_2_REGS + GPIO_RISINGDETECT) |= 1 << pin;
+        HWREG(SOC_GPIO_2_REGS + GPIO_RISINGDETECT) |= 1 << pin;
         HWREG(SOC_GPIO_2_REGS + GPIO_FALLINGDETECT) |= (1 << pin);
         break;
     case GPIO3:
