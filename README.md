@@ -27,6 +27,11 @@ Utilizamos pull-down em todos os botões. Nos LEDs foram necessários usar trans
 ### 💻 O Software
 Configuramos interrupção para o _delay()_ e botões. Quando um botão é pressionado, uma matriz de _char_ é atualizada com o caractere 'X' ou 'O', após isso é chamada uma função onde acende os leds conforme a distribuição dos characteres citados anteriormente. Após cada rodada é verificado caso alguma linha, coluna ou diagonal está preenchida com o mesmo símbolo ASCII. Caso sim, os LEDs piscarão na suas cores correspondentes, caso haja empate, basta apertar no botão de _reset_.
 
+### 🎬 Vídeo 
+https://github.com/wl11lm/TPSETicTacToe/assets/62153578/260df4a2-6efe-4cec-bc3f-d647b7efd8a7
+
+
+
 ## 👥 Autores
 - Ana Livia da Silveira Lopes
 - Cecilia Mourão Carvalhedo Mesquita
